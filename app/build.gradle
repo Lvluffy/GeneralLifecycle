@@ -39,4 +39,5 @@ dependencies {
     /**support-v4*/
     api rootProject.ext.supportLibs
     implementation project(path: ':screenlib')
+    implementation project(path: ':titlebarlibrary')
 }

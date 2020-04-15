@@ -1,15 +1,21 @@
 package com.luffy.generallifecycle;
 
-import android.os.Bundle;
-
 import com.luffy.generallifecycle.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public int setLayoutView() {
+        return R.layout.activity_main;
     }
 
+    @Override
+    public void initReceiveData() {
+
+    }
+
+    @Override
+    public void initView() {
+        setTitleString("主界面");
+    }
 }
