@@ -5,7 +5,7 @@ import android.app.Application;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.View;
+import android.widget.FrameLayout;
 
 /**
  * Created by lvlufei on 2020-04-26
@@ -19,8 +19,8 @@ public class StatusBarClient {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-                View view = activity.getWindow().getDecorView();
-                view.setFitsSystemWindows(true);
+                FrameLayout decorView = activity.getWindow().getDecorView().findViewById(android.R.id.content);
+                decorView.setFitsSystemWindows(true);
                 /*沉浸式状态栏*/
                 StatusBarUtils.getInstance().setStatusBar(activity, R.color.white, true);
             }
