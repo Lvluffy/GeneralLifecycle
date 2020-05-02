@@ -2,16 +2,12 @@ package com.luffy.statusbarlib;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.Point;
-import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewCompat;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
