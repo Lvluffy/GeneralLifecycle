@@ -15,14 +15,14 @@ import android.widget.FrameLayout;
  */
 public class StatusBarClient {
 
-    public static void install(Application application, final int colorId) {
+    public static void install(Application application, final int colorId, final boolean isDarkColor) {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
                 FrameLayout decorView = activity.getWindow().getDecorView().findViewById(android.R.id.content);
                 decorView.setFitsSystemWindows(true);
                 /*沉浸式状态栏*/
-                StatusBarUtils.getInstance().setStatusBar(activity, colorId, true);
+                StatusBarUtils.getInstance().setStatusBar(activity, colorId, isDarkColor);
             }
 
             @Override

@@ -12,7 +12,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ScreenClient.install(this);
-        StatusBarClient.install(this, R.color.white);
+        StatusBarClient.install(this, R.color.white, true);
         LamentClient.install(this);
     }
 }
