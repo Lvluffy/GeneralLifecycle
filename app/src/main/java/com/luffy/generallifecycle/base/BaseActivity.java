@@ -2,11 +2,11 @@ package com.luffy.generallifecycle.base;
 
 import android.support.v7.app.AppCompatActivity;
 
+import com.luffy.lifycycle.screenlib.impl.IBaseScreen;
 import com.luffy.lifycycle.titlebarlib.impl.IPresenter;
 import com.luffy.lifycycle.titlebarlib.impl.ITitleClick;
 import com.luffy.lifycycle.titlebarlib.impl.ITitleLayout;
 import com.luffy.lifycycle.titlebarlib.impl.IUIInit;
-import com.luffy.lifycycle.screenlib.impl.IBaseScreen;
 
 public abstract class BaseActivity extends AppCompatActivity implements IBaseScreen,
         ITitleLayout,

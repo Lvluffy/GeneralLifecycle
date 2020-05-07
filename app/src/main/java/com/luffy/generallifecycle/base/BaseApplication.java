@@ -4,9 +4,9 @@ import android.app.Application;
 
 import com.luffy.generallifecycle.R;
 import com.luffy.lifycycle.lamentlib.LamentClient;
-import com.luffy.lifycycle.titlebarlib.TitleBarClient;
 import com.luffy.lifycycle.screenlib.ScreenClient;
 import com.luffy.lifycycle.statusbarlib.StatusBarClient;
+import com.luffy.lifycycle.titlebarlib.TitleBarClient;
 
 public class BaseApplication extends Application {
     @Override
