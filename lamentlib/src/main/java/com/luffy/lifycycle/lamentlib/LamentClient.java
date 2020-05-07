@@ -1,40 +1,32 @@
-package com.luffy.screenlib;
+package com.luffy.lifycycle.lamentlib;
 
 import android.app.Activity;
 import android.app.Application;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.Window;
-import android.view.WindowManager;
-
-import com.luffy.screenlib.impl.IBaseScreen;
+import android.view.View;
 
 /**
- * Created by lvlufei on 2020-04-13
+ * Created by lvlufei on 2020-04-10
  *
- * @name 屏幕
+ * @name 哀悼
  * @desc
  */
-public class ScreenClient {
+public class LamentClient {
+
     public static void install(Application application) {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-                if (activity instanceof IBaseScreen) {
-                    /*不显示标题栏*/
-                    if (!((IBaseScreen) activity).visibleTitleBar()) {
-                        activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    }
-                    /*不显示信息栏*/
-                    if (!((IBaseScreen) activity).visibleInfoBar()) {
-                        activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                    }
-                    /*不锁屏(保持屏幕不变黑)*/
-                    if (!((IBaseScreen) activity).isLockScreen()) {
-                        activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-                    }
-                }
+                Paint paint = new Paint();
+                ColorMatrix colorMatrix = new ColorMatrix();
+                colorMatrix.setSaturation(0);
+                paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                activity.getWindow().getDecorView().setLayerType(View.LAYER_TYPE_HARDWARE, paint);
             }
 
             @Override

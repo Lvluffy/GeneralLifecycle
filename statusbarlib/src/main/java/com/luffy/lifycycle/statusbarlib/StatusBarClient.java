@@ -1,32 +1,28 @@
-package com.luffy.lamentlib;
+package com.luffy.lifycycle.statusbarlib;
 
 import android.app.Activity;
 import android.app.Application;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.View;
+import android.widget.FrameLayout;
 
 /**
- * Created by lvlufei on 2020-04-10
+ * Created by lvlufei on 2020-04-26
  *
- * @name 哀悼
+ * @name 状态栏
  * @desc
  */
-public class LamentClient {
+public class StatusBarClient {
 
-    public static void install(Application application) {
+    public static void install(Application application, final int colorId, final boolean isDarkColor) {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-                Paint paint = new Paint();
-                ColorMatrix colorMatrix = new ColorMatrix();
-                colorMatrix.setSaturation(0);
-                paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                activity.getWindow().getDecorView().setLayerType(View.LAYER_TYPE_HARDWARE, paint);
+                FrameLayout decorView = activity.getWindow().getDecorView().findViewById(android.R.id.content);
+                decorView.setFitsSystemWindows(true);
+                /*沉浸式状态栏*/
+                StatusBarUtils.getInstance().setStatusBar(activity, colorId, isDarkColor);
             }
 
             @Override

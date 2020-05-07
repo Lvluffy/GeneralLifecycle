@@ -1,7 +1,7 @@
 package com.luffy.generallifecycle;
 
 import com.luffy.generallifecycle.base.BaseActivity;
-import com.luffy.screenlib.impl.IBaseScreen;
+import com.luffy.lifycycle.screenlib.impl.IBaseScreen;
 
 public class MainActivity extends BaseActivity implements IBaseScreen {
 

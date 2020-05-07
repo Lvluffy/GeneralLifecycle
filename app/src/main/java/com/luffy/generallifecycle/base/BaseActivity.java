@@ -6,7 +6,7 @@ import com.luffy.lifycycle.titlebarlib.impl.IPresenter;
 import com.luffy.lifycycle.titlebarlib.impl.ITitleClick;
 import com.luffy.lifycycle.titlebarlib.impl.ITitleLayout;
 import com.luffy.lifycycle.titlebarlib.impl.IUIInit;
-import com.luffy.screenlib.impl.IBaseScreen;
+import com.luffy.lifycycle.screenlib.impl.IBaseScreen;
 
 public abstract class BaseActivity extends AppCompatActivity implements IBaseScreen,
         ITitleLayout,

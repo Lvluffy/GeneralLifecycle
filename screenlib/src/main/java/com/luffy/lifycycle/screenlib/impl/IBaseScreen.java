@@ -1,4 +1,4 @@
-package com.luffy.screenlib.impl;
+package com.luffy.lifycycle.screenlib.impl;
 
 /**
  * Created by lvlufei on 2018/1/1

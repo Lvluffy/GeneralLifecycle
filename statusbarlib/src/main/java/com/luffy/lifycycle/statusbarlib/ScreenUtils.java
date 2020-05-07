@@ -1,4 +1,4 @@
-package com.luffy.statusbarlib;
+package com.luffy.lifycycle.statusbarlib;
 
 import android.app.Activity;
 import android.content.Context;

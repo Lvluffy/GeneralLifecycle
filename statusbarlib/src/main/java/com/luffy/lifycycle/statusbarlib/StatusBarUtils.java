@@ -1,4 +1,4 @@
-package com.luffy.statusbarlib;
+package com.luffy.lifycycle.statusbarlib;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

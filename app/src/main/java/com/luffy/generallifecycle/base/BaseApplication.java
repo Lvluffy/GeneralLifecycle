@@ -3,10 +3,10 @@ package com.luffy.generallifecycle.base;
 import android.app.Application;
 
 import com.luffy.generallifecycle.R;
-import com.luffy.lamentlib.LamentClient;
+import com.luffy.lifycycle.lamentlib.LamentClient;
 import com.luffy.lifycycle.titlebarlib.TitleBarClient;
-import com.luffy.screenlib.ScreenClient;
-import com.luffy.statusbarlib.StatusBarClient;
+import com.luffy.lifycycle.screenlib.ScreenClient;
+import com.luffy.lifycycle.statusbarlib.StatusBarClient;
 
 public class BaseApplication extends Application {
     @Override
