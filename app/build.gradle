@@ -41,4 +41,5 @@ dependencies {
     implementation project(path: ':screenlib')
     implementation project(path: ':statusbarlib')
     implementation project(path: ':lamentlib')
+    implementation project(path: ':titlebarlib')
 }
