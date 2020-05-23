@@ -19,10 +19,12 @@ public class StatusBarClient {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-                FrameLayout decorView = activity.getWindow().getDecorView().findViewById(android.R.id.content);
-                decorView.setFitsSystemWindows(true);
-                /*沉浸式状态栏*/
-                StatusBarUtils.getInstance().setStatusBar(activity, colorId, isDarkColor);
+                if (activity instanceof IStatus) {
+                    FrameLayout decorView = activity.getWindow().getDecorView().findViewById(android.R.id.content);
+                    decorView.setFitsSystemWindows(true);
+                    /*沉浸式状态栏*/
+                    StatusBarUtils.getInstance().setStatusBar(activity, colorId, isDarkColor);
+                }
             }
 
             @Override

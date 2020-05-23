@@ -3,6 +3,7 @@ package com.luffy.generallifecycle.base;
 import android.support.v7.app.AppCompatActivity;
 
 import com.luffy.lifycycle.screenlib.impl.IBaseScreen;
+import com.luffy.lifycycle.statusbarlib.IStatus;
 import com.luffy.lifycycle.titlebarlib.impl.IPresenter;
 import com.luffy.lifycycle.titlebarlib.impl.ITitleClick;
 import com.luffy.lifycycle.titlebarlib.impl.ITitleLayout;
@@ -12,7 +13,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseScr
         ITitleLayout,
         ITitleClick,
         IPresenter,
-        IUIInit {
+        IUIInit,
+        IStatus {
 
     @Override
     public boolean visibleTitleBar() {
