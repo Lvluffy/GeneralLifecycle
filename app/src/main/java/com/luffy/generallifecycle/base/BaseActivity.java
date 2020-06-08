@@ -48,7 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseScr
 
     @Override
     public void onClickBack() {
-
+        onBackPressed();
     }
 
     @Override
