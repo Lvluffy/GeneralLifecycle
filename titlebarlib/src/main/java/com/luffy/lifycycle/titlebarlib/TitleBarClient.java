@@ -35,12 +35,12 @@ public class TitleBarClient {
                     TitleBarWidget.getInstance().initTitlebarWidget();
                     /*初始化标题栏事件*/
                     TitleBarWidget.getInstance().initTitleEvent(activity, activity.getLayoutInflater());
+                    /*初始化接收到的数据*/
+                    ((IUIInit) activity).initReceiveData();
                     /*初始化标题栏配置*/
                     TitleBarWidget.getInstance().initTitlebarConfig(activity, activity);
                     /*绑定控件*/
                     ((IUIInit) activity).bindButterKnife(activity);
-                    /*初始化接收到的数据*/
-                    ((IUIInit) activity).initReceiveData();
                     /*初始化界面*/
                     ((IUIInit) activity).initView();
                 }
