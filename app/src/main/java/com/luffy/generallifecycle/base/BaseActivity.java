@@ -1,6 +1,7 @@
 package com.luffy.generallifecycle.base;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.luffy.lifycycle.screenlib.impl.IBaseScreen;
 import com.luffy.lifycycle.statusbarlib.IStatus;
@@ -93,6 +94,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseScr
 
     @Override
     public boolean visibilityMore() {
+        return true;
+    }
+
+    @Override
+    public boolean visibilityMoreView() {
         return false;
     }
 
@@ -182,8 +188,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseScr
     }
 
     @Override
-    public int setMoreImg() {
-        return 0;
+    public View setMoreView() {
+        return null;
     }
 
     @Override
@@ -208,6 +214,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseScr
 
     @Override
     public int setMoreTextSize() {
+        return 0;
+    }
+
+    @Override
+    public int setMoreImg() {
         return 0;
     }
 

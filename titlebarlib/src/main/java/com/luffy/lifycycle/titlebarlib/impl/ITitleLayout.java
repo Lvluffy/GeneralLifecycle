@@ -1,5 +1,7 @@
 package com.luffy.lifycycle.titlebarlib.impl;
 
+import android.view.View;
+
 /**
  * Created by lvlufei on 2020-04-14
  *
@@ -56,6 +58,13 @@ public interface ITitleLayout {
      * @return
      */
     boolean visibilityMore();
+
+    /**
+     * 设置更多可见与否
+     *
+     * @return
+     */
+    boolean visibilityMoreView();
 
     /**
      * 设置更多可见与否
@@ -177,21 +186,21 @@ public interface ITitleLayout {
     int setTitleSize();
 
     /**
-     * 设置更多图标
+     * 设置更多View
      *
      * @return
      */
-    int setMoreImg();
+    View setMoreView();
 
     /**
-     * 设置更多
+     * 设置更多文案
      *
      * @return
      */
     int setMoreTextInt();
 
     /**
-     * 设置更多
+     * 设置更多文案
      *
      * @return
      */
@@ -217,6 +226,13 @@ public interface ITitleLayout {
      * @return
      */
     int setMoreTextSize();
+
+    /**
+     * 设置更多图标
+     *
+     * @return
+     */
+    int setMoreImg();
 
     /**
      * 设置分割线颜色

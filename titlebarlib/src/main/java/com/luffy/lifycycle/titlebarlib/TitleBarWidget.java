@@ -36,8 +36,9 @@ public class TitleBarWidget<T> {
     private TextView navBackTxt;
     private TextView navTitle;
     private LinearLayout navMore;
-    private ImageView navMoreImg;
+    private FrameLayout navMoreView;
     private TextView navMoreTxt;
+    private ImageView navMoreImg;
     private View navDivider;
     /*子界面布局*/
     private FrameLayout baseChildLayout;
@@ -117,12 +118,12 @@ public class TitleBarWidget<T> {
         this.navMore = navMore;
     }
 
-    public ImageView getNavMoreImg() {
-        return navMoreImg;
+    public FrameLayout getNavMoreView() {
+        return navMoreView;
     }
 
-    public void setNavMoreImg(ImageView navMoreImg) {
-        this.navMoreImg = navMoreImg;
+    public void setNavMoreView(FrameLayout navMoreView) {
+        this.navMoreView = navMoreView;
     }
 
     public TextView getNavMoreTxt() {
@@ -131,6 +132,14 @@ public class TitleBarWidget<T> {
 
     public void setNavMoreTxt(TextView navMoreTxt) {
         this.navMoreTxt = navMoreTxt;
+    }
+
+    public ImageView getNavMoreImg() {
+        return navMoreImg;
+    }
+
+    public void setNavMoreImg(ImageView navMoreImg) {
+        this.navMoreImg = navMoreImg;
     }
 
     public View getNavDivider() {
@@ -149,7 +158,6 @@ public class TitleBarWidget<T> {
         this.baseChildLayout = baseChildLayout;
     }
 
-
     @SuppressLint("WrongViewCast")
     public void initTitlebarWidget() {
         setNavLayout((RelativeLayout) getRootView().findViewById(R.id.nav_layout));
@@ -159,8 +167,9 @@ public class TitleBarWidget<T> {
         setNavCloseImg((ImageView) getRootView().findViewById(R.id.nav_close_img));
         setNavTitle((TextView) getRootView().findViewById(R.id.nav_title));
         setNavMore((LinearLayout) getRootView().findViewById(R.id.nav_more));
-        setNavMoreImg((ImageView) getRootView().findViewById(R.id.nav_more_img));
+        setNavMoreView((FrameLayout) getRootView().findViewById(R.id.nav_more_view));
         setNavMoreTxt((TextView) getRootView().findViewById(R.id.nav_more_txt));
+        setNavMoreImg((ImageView) getRootView().findViewById(R.id.nav_more_img));
         setNavDivider(getRootView().findViewById(R.id.nav_divider));
         setBaseChildLayout((FrameLayout) getRootView().findViewById(R.id.base_child_layout));
     }
@@ -239,6 +248,11 @@ public class TitleBarWidget<T> {
             } else {
                 getNavMore().setVisibility(View.GONE);
             }
+            if (((ITitleLayout) t).visibilityMoreView()) {
+                getNavMoreView().setVisibility(View.VISIBLE);
+            } else {
+                getNavMoreView().setVisibility(View.GONE);
+            }
             if (((ITitleLayout) t).visibilityMoreImg()) {
                 getNavMoreImg().setVisibility(View.VISIBLE);
             } else {
@@ -295,7 +309,11 @@ public class TitleBarWidget<T> {
             if (((ITitleLayout) t).setMoreImg() != 0) {
                 getNavMoreImg().setImageResource(((ITitleLayout) t).setMoreImg());
             }
-            /*设置更多*/
+            /*设置更多View*/
+            if (((ITitleLayout) t).setMoreView() != null) {
+                getNavMoreView().addView(((ITitleLayout) t).setMoreView());
+            }
+            /*设置更多文案*/
             if (((ITitleLayout) t).setMoreTextInt() != 0) {
                 getNavMoreTxt().setText(((ITitleLayout) t).setMoreTextInt());
             } else if (!TextUtils.isEmpty(((ITitleLayout) t).setMoreTextString())) {

@@ -31,6 +31,8 @@ public class TitleBarClient {
                     }
                     /*绑定布局*/
                     activity.setContentView(TitleBarWidget.getInstance().getRootView());
+                    /*绑定控件*/
+                    ((IUIInit) activity).bindButterKnife(activity);
                     /*初始化标题栏控件*/
                     TitleBarWidget.getInstance().initTitlebarWidget();
                     /*初始化标题栏事件*/
@@ -39,8 +41,6 @@ public class TitleBarClient {
                     ((IUIInit) activity).initReceiveData();
                     /*初始化标题栏配置*/
                     TitleBarWidget.getInstance().initTitlebarConfig(activity, activity);
-                    /*绑定控件*/
-                    ((IUIInit) activity).bindButterKnife(activity);
                     /*初始化界面*/
                     ((IUIInit) activity).initView();
                 }
