@@ -1,5 +1,7 @@
 package com.luffy.generallifecycle;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -11,7 +13,7 @@ public class MainActivity extends BaseActivity implements IBaseScreen {
 
     @Override
     public int setLayoutView() {
-        return R.layout.activity_main;
+        return 0;
     }
 
     @Override
@@ -26,7 +28,10 @@ public class MainActivity extends BaseActivity implements IBaseScreen {
 
     @Override
     public void initView() {
-
+        MainFragment mainFragment = new MainFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(android.R.id.content, mainFragment).commitAllowingStateLoss();
     }
 
     @Override
