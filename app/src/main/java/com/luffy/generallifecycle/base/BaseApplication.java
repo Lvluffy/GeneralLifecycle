@@ -5,6 +5,7 @@ import android.app.Application;
 import com.luffy.generallifecycle.R;
 import com.luffy.lifecycle.printlib.PrintLifecycleClient;
 import com.luffy.lifycycle.lamentlib.LamentClient;
+import com.luffy.lifycycle.nightmodelib.NightModeClient;
 import com.luffy.lifycycle.screenlib.ScreenClient;
 import com.luffy.lifycycle.statusbarlib.StatusBarClient;
 import com.luffy.lifycycle.titlebarlib.TitleBarClient;
@@ -18,5 +19,6 @@ public class BaseApplication extends Application {
         LamentClient.install(this);
         TitleBarClient.install(this, R.layout.base_layout);
         PrintLifecycleClient.install(this);
+        NightModeClient.install(this, true);
     }
 }

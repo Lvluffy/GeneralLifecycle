@@ -1,11 +1,12 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.Lvluffy'
 
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
     buildToolsVersion rootProject.android.buildToolsVersion
     /**默认-选项配置*/
     defaultConfig {
-        applicationId rootProject.android.applicationId
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode rootProject.android.versionCode
@@ -32,16 +33,16 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    /**自定义aar的名字*/
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = outputFileName.replace(".aar", "-") + rootProject.android.versionCode + ".aar"
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     /**support-v4*/
-    implementation rootProject.supportDepends.values()
-    implementation project(path: ':screenlib')
-    implementation project(path: ':statusbarlib')
-    implementation project(path: ':lamentlib')
-    implementation project(path: ':titlebarlib')
-    implementation project(path: ':printlib')
-    implementation project(path: ':nightmodelib')
+    compileOnly rootProject.supportDepends.values()
 }
