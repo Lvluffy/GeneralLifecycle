@@ -2,7 +2,7 @@ package com.luffy.lifycycle.titlebarlib;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -285,7 +285,8 @@ public class TitleBarWidget<T> {
             }
             /*设置返回颜色*/
             if (((ITitleLayout) t).setBackTextColor() != 0) {
-                getNavBackTxt().setTextColor(ContextCompat.getColor(mContext, ((ITitleLayout) t).setBackTextColor()));
+                getNavBackTxt().setTextColor(Build.VERSION.SDK_INT >= 23 ? mContext.getColor(((ITitleLayout) t).setBackTextColor()) :
+                        mContext.getResources().getColor(((ITitleLayout) t).setBackTextColor()));
             }
             /*设置返回大小*/
             if (((ITitleLayout) t).setBackTextSize() != 0) {
@@ -299,7 +300,8 @@ public class TitleBarWidget<T> {
             }
             /*设置标题颜色*/
             if (((ITitleLayout) t).setTitleColor() != 0) {
-                getNavTitle().setTextColor(ContextCompat.getColor(mContext, ((ITitleLayout) t).setTitleColor()));
+                getNavTitle().setTextColor(Build.VERSION.SDK_INT >= 23 ? mContext.getColor(((ITitleLayout) t).setTitleColor()) :
+                        mContext.getResources().getColor(((ITitleLayout) t).setTitleColor()));
             }
             /*设置标题大小*/
             if (((ITitleLayout) t).setTitleSize() != 0) {
@@ -321,7 +323,8 @@ public class TitleBarWidget<T> {
             }
             /*设置更多颜色*/
             if (((ITitleLayout) t).setMoreTextColor() != 0) {
-                getNavMoreTxt().setTextColor(ContextCompat.getColor(mContext, ((ITitleLayout) t).setMoreTextColor()));
+                getNavMoreTxt().setTextColor(Build.VERSION.SDK_INT >= 23 ? mContext.getColor(((ITitleLayout) t).setMoreTextColor()) :
+                        mContext.getResources().getColor(((ITitleLayout) t).setMoreTextColor()));
             }
             /*设置更多大小*/
             if (((ITitleLayout) t).setMoreTextSize() != 0) {
@@ -335,7 +338,8 @@ public class TitleBarWidget<T> {
             }
             /*设置分割线颜色*/
             if (((ITitleLayout) t).setDividerColor() != 0) {
-                getNavDivider().setBackgroundColor(ContextCompat.getColor(mContext, ((ITitleLayout) t).setDividerColor()));
+                getNavDivider().setBackgroundColor(Build.VERSION.SDK_INT >= 23 ? mContext.getColor(((ITitleLayout) t).setDividerColor()) :
+                        mContext.getResources().getColor(((ITitleLayout) t).setDividerColor()));
             }
         }
     }

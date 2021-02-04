@@ -3,8 +3,6 @@ package com.luffy.lifycycle.titlebarlib;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.luffy.lifycycle.titlebarlib.impl.IPresenter;
 import com.luffy.lifycycle.titlebarlib.impl.IUIInit;
@@ -20,7 +18,7 @@ public class TitleBarClient {
     public static void install(Application application, final int rootResource) {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
-            public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
                 if (activity instanceof IUIInit) {
                     if (rootResource == 0) {
                         TitleBarWidget.getInstance().setRootView(activity.getLayoutInflater().inflate(R.layout.root_layout, null));
@@ -49,27 +47,27 @@ public class TitleBarClient {
             }
 
             @Override
-            public void onActivityStarted(@NonNull Activity activity) {
+            public void onActivityStarted(Activity activity) {
             }
 
             @Override
-            public void onActivityResumed(@NonNull Activity activity) {
+            public void onActivityResumed(Activity activity) {
             }
 
             @Override
-            public void onActivityPaused(@NonNull Activity activity) {
+            public void onActivityPaused(Activity activity) {
             }
 
             @Override
-            public void onActivityStopped(@NonNull Activity activity) {
+            public void onActivityStopped(Activity activity) {
             }
 
             @Override
-            public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
             }
 
             @Override
-            public void onActivityDestroyed(@NonNull Activity activity) {
+            public void onActivityDestroyed(Activity activity) {
                 if (activity instanceof IPresenter) {
                     /*为Presenter分离视图*/
                     ((IPresenter) activity).detachViewForPresenter();
